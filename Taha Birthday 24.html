@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Taha</title>
+    <style>
+        body {
+            background-color: #e3335f;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container.active {
+            display: flex;
+        }
+        h1, h2 {
+            color: rgb(0, 0, 0);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .button, .option-button, .answer-button {
+            background-color: white;
+            color: rgbe11447;
+            border: 2px solid white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 10px;
+            margin: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover, .option-button:hover, .answer-button:hover {
+            background-color: e11447;
+            color: white;
+        }
+        .clouds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .cloud {
+            position: absolute;
+            background: white;
+            opacity: 0.8;
+            border-radius: 50%;
+            width: 200px;
+            height: 60px;
+        }
+        .cloud1 {
+            top: 10%;
+            left: 20%;
+            animation: moveClouds 60s linear infinite;
+        }
+        .cloud2 {
+            top: 40%;
+            left: 60%;
+            animation: moveClouds 50s linear infinite;
+        }
+        .cloud3 {
+            top: 70%;
+            left: 30%;
+            animation: moveClouds 70s linear infinite;
+        }
+        @keyframes moveClouds {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        .party-popper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: url('party-popper.png') no-repeat center center;
+            background-size: contain;
+            margin-top: 20px;
+            animation: pop 1s ease-out forwards;
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .feedback {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        .correct {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- Clouds -->
+    <div class="clouds">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <!-- Page 1 -->
+    <div id="page1" class="container active">
+        <h1>Happy Birthday Taha</h1>
+        <h2>Here's a special quiz for you, if you can answer more than 5 questions correct you can open the prize</h2>
+        <button class="button" onclick="showPage('question1')">Next</button>
+    </div>
+
+    <!-- Questions -->
+    <div id="question1" class="container">
+        <h2>Question 1: Lore and History<br>In "The Legend of Zelda: Ocarina of Time," what is the name of the sage who awakens as the Sage of Light?</h2>
+        <button class="answer-button" onclick="checkAnswer('question1', 'A')">A. Rauru</button>
+        <button class="answer-button" onclick="checkAnswer('question1', 'B')">B. Saria</button>
+        <button class="answer-button" onclick="checkAnswer('question1', 'C')">C. Darunia</button>
+        <button class="answer-button" onclick="checkAnswer('question1', 'D')">D. Impa</button>
+        <div id="feedback-question1" class="feedback"></div>
+    </div>
+    <div id="question2" class="container">
+        <h2>Question 2: Locations<br>In "The Legend of Zelda: Twilight Princess," what is the name of the hidden village that is said to be the ancestral home of the Sheikah?</h2>
+        <button class="answer-button" onclick="checkAnswer('question2', 'A')">A. Kakariko Village</button>
+        <button class="answer-button" onclick="checkAnswer('question2', 'B')">B. Ordon Village</button>
+        <button class="answer-button" onclick="checkAnswer('question2', 'C')">C. Hidden Village</button>
+        <button class="answer-button" onclick="checkAnswer('question2', 'D')">D. Castle Town</button>
+        <div id="feedback-question2" class="feedback"></div>
+    </div>
+    <div id="question3" class="container">
+        <h2>Question 3: Items and Equipment<br>In "The Legend of Zelda: A Link to the Past," what item do you need to enter the Desert Palace?</h2>
+        <button class="answer-button" onclick="checkAnswer('question3', 'A')">A. Hookshot</button>
+        <button class="answer-button" onclick="checkAnswer('question3', 'B')">B. Power Glove</button>
+        <button class="answer-button" onclick="checkAnswer('question3', 'C')">C. Book of Mudora</button>
+        <button class="answer-button" onclick="checkAnswer('question3', 'D')">D. Magic Mirror</button>
+        <div id="feedback-question3" class="feedback"></div>
+    </div>
+    <div id="question4" class="container">
+        <h2>Question 4: Boss Battles<br>In "The Legend of Zelda: Majora's Mask," what is the name of the boss in the Stone Tower Temple?</h2>
+        <button class="answer-button" onclick="checkAnswer('question4', 'A')">A. Odolwa</button>
+        <button class="answer-button" onclick="checkAnswer('question4', 'B')">B. Goht</button>
+        <button class="answer-button" onclick="checkAnswer('question4', 'C')">C. Gyorg</button>
+        <button class="answer-button" onclick="checkAnswer('question4', 'D')">D. Twinmold</button>
+        <div id="feedback-question4" class="feedback"></div>
+    </div>
+    <div id="question5" class="container">
+        <h2>Question 5: Music and Sound<br>Which instrument does Link primarily use in "The Legend of Zelda: Ocarina of Time"?</h2>
+        <button class="answer-button" onclick="checkAnswer('question5', 'A')">A. Flute</button>
+        <button class="answer-button" onclick="checkAnswer('question5', 'B')">B. Harp</button>
+        <button class="answer-button" onclick="checkAnswer('question5', 'C')">C. Ocarina</button>
+        <button class="answer-button" onclick="checkAnswer('question5', 'D')">D. Guitar</button>
+        <div id="feedback-question5" class="feedback"></div>
+    </div>
+    <div id="question6" class="container">
+        <h2>Question 6: Side Quests<br>In "The Legend of Zelda: Breath of the Wild," how many Korok seeds are there to collect?</h2>
+        <button class="answer-button" onclick="checkAnswer('question6', 'A')">A. 100</button>
+        <button class="answer-button" onclick="checkAnswer('question6', 'B')">B. 250</button>
+        <button class="answer-button" onclick="checkAnswer('question6', 'C')">C. 500</button>
+        <button class="answer-button" onclick="checkAnswer('question6', 'D')">D. 900</button>
+        <div id="feedback-question6" class="feedback"></div>
+    </div>
+    <div id="question7" class="container">
+        <h2>Question 7: Enemies<br>In "The Legend of Zelda: The Wind Waker," what is the name of the enemy that appears as a giant squid?</h2>
+        <button class="answer-button" onclick="checkAnswer('question7', 'A')">A. Octorok</button>
+        <button class="answer-button" onclick="checkAnswer('question7', 'B')">B. Gyorg</button>
+        <button class="answer-button" onclick="checkAnswer('question7', 'C')">C. Big Octo</button>
+        <button class="answer-button" onclick="checkAnswer('question7', 'D')">D. Moblin</button>
+        <div id="feedback-question7" class="feedback"></div>
+    </div>
+    <div id="question8" class="container">
+        <h2>Question 8: Characters<br>What is the true identity of Sheik in "The Legend of Zelda: Ocarina of Time"?</h2>
+        <button class="answer-button" onclick="checkAnswer('question8', 'A')">A. Zelda</button>
+        <button class="answer-button" onclick="checkAnswer('question8', 'B')">B. Impa</button>
+        <button class="answer-button" onclick="checkAnswer('question8', 'C')">C. Ruto</button>
+        <button class="answer-button" onclick="checkAnswer('question8', 'D')">D. Nabooru</button>
+        <div id="feedback-question8" class="feedback"></div>
+    </div>
+    <div id="question9" class="container">
+        <h2>Question 9: Plot Points<br>In "The Legend of Zelda: Skyward Sword," what is the name of the goddess who is reborn as Zelda?</h2>
+        <button class="answer-button" onclick="checkAnswer('question9', 'A')">A. Nayru</button>
+        <button class="answer-button" onclick="checkAnswer('question9', 'B')">B. Din</button>
+        <button class="answer-button" onclick="checkAnswer('question9', 'C')">C. Hylia</button>
+        <button class="answer-button" onclick="checkAnswer('question9', 'D')">D. Farore</button>
+        <div id="feedback-question9" class="feedback"></div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="container">
+        <h2>What do you wanna take for birthday?</h2>
+        <button class="option-button" onclick="showPage('page3')">A. Thousand kisses from your B</button>
+        <button class="option-button" onclick="showPage('page4')">B. 5000 JPY gift voucher</button>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page3" class="container">
+        <h2>You won 10,000 JPY gift voucher and Thousand kisses from your B</h2>
+        <div class="party-popper"></div>
+    </div>
+
+    <!-- Page 4 -->
+    <div id="page4" class="container">
+        <h2>You won 5000 JPY gift voucher</h2>
+        <div class="party-popper"></div>
+    </div>
+
+    <script>
+        let correctAnswers = 0;
+        const correctAnswersKey = {
+            question1: 'A',
+            question2: 'C',
+            question3: 'C',
+            question4: 'D',
+            question5: 'C',
+            question6: 'D',
+            question7: 'C',
+            question8: 'A',
+            question9: 'C'
+        };
+
+        function showPage(pageId) {
+            document.querySelectorAll('.container').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function checkAnswer(questionId, selectedAnswer) {
+            const feedbackElement = document.getElementById('feedback-' + questionId);
+            if (correctAnswersKey[questionId] === selectedAnswer) {
+                correctAnswers++;
+                feedbackElement.innerHTML = '<span class="correct">Correct!</span>';
+            } else {
+                feedbackElement.innerHTML = '<span class="wrong">Wrong!</span>';
+            }
+            setTimeout(() => {
+                const nextQuestionId = 'question' + (parseInt(questionId.replace('question', '')) + 1);
+                if (document.getElementById(nextQuestionId)) {
+                    showPage(nextQuestionId);
+                } else {
+                    if (correctAnswers > 5) {
+                        showPage('page2');
+                    } else {
+                        alert("You didn't answer enough questions correctly. Please try again.");
+                        location.reload();
+                    }
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
